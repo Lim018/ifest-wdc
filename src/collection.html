@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | Rewear.co</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style2.css">
+</head>
+<body id="body" class="relative">
+    <!-- Mobile Navigation Sidebar -->
+    <div id="nav" class="mobile-nav">
+        <div id="sidebar" class="sidebar">
+            <button id="cross" class="close-btn"><img src="assets/icons/close-icon.svg" alt=""></button>
+            <a href="index.html"><h1 class="logo">Rewear.co</h1></a>
+            <ul class="sidebar-menu">
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="dashboard.html">Product</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="location.html">Store Location</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="desktop-menu">
+                <ul class="nav-links">
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="200"><a href="collection.html">Collection</a></li>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="300"><a href="dashboard.html">Product</a></li>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="400"><a href="blog.html">Blog</a></li>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="500"><a href="location.html">Store Location</a></li>
+                </ul>
+            </div>
+            <div class="logo-container">
+                <button data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" id="hamburger" class="hamburger"><img src="assets/icons/hamburger.svg" alt=""></button>
+                <a href="index.html"><h1 data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="logo" style="color: black;">Rewear.co</h1></a>
+            </div>
+            <div class="nav-actions">
+                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" class="search-container">
+                    <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon">
+                        <path d="M16.031 14.617L20.314 18.899L18.899 20.314L14.617 16.031C13.0237 17.3082 11.042 18.0029 9 18C4.032 18 0 13.968 0 9C0 4.032 4.032 0 9 0C13.968 0 18 4.032 18 9C18.0029 11.042 17.3082 13.0237 16.031 14.617ZM14.025 13.875C15.2938 12.5697 16.0025 10.8204 16 9C16 5.133 12.867 2 9 2C5.133 2 2 5.133 2 9C2 12.867 5.133 16 9 16C10.8204 16.0025 12.5697 15.2938 13.875 14.025L14.025 13.875Z" fill="#000"/>
+                    </svg>
+                    <input type="text" placeholder="Search" class="search-input" />
+                </div>
+                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="350" class="mobile-search">
+                    <button href="" onclick="searching()">
+                        <img src="assets/icons/search.svg" alt="" class="mobile-search-icon">
+                    </button>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="350" class="nav-icon">
+                    <button>
+                        <a href="bag.html">
+                            <img src="assets/icons/bag-icon-black.svg" alt="" class="icon">
+                        </a>
+                    </button>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="300" class="nav-icon">
+                    <button>
+                        <a href="login.html">
+                            <img src="assets/icons/profile-icon.svg" alt="" class="icon">
+                        </a>
+                    </button>
+                </div>
+            </div>  
+        </nav>
+        
+        <!-- Mobile Search Bar -->
+        <div class="mobile-search-container">
+            <div id="searchBar" class="mobile-search-bar">
+                <button><img src="assets/icons/search.svg" alt="" class="mobile-search-icon"></button>
+                <input type="text" placeholder="Search" class="mobile-search-input" />
+            </div>  
+        </div>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-section">
+                <div class="breadcrumb">
+                    <p><a href="index.html">Home</a></p>
+                    <p> / </p>
+                    <p>Collections</p>
+                </div>
+                <div class="sort-section">
+                    <button class="filter-button" onclick="toggleFilter()">
+                        <img src="assets/icons/filter-icon.svg" alt="">
+                    </button>
+                    <div class="sort-info">
+                        <p>Sort By: <span style="font-weight: 600;">Newest</span></p>
+                        <p class="product-count">32 Products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Desktop Sidebar -->
+            <div class="desktop-sidebar">
+                <div class="sidebar-content">
+                    <div class="filter-header">
+                        <h2 style="color: black;">Filter</h2>
+                    </div>
+                    <div class="filter-section">
+                        <div class="filter-title">
+                            <h2>Category</h2>
+                            <img src="assets/icons/chevron-down.svg" alt="" class="arrow-icon">
+                        </div>
+                        <div class="dropdown-list">
+                            <ul class="filter-items">
+                                <li class="active">All</li>
+                                <li>T-Shirts</li>
+                                <li>Dresses</li>
+                                <li>Pants</li>
+                                <li>Accessories</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <div class="filter-title">
+                            <h2>Collection</h2>
+                            <img src="assets/icons/chevron-down.svg" alt="" class="arrow-icon">
+                        </div>
+                        <div class="dropdown-list">
+                            <ul class="filter-items">
+                                <li class="active">All Collections</li>
+                                <li>Summer 2023</li>
+                                <li>Eco Essentials</li>
+                                <li>Winter Warmers</li>
+                                <li>Sustainable Basics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <div class="filter-title">
+                            <h2>Size</h2>
+                            <img src="assets/icons/chevron-down.svg" alt="" class="arrow-icon">
+                        </div>
+                        <div class="dropdown-list">
+                            <ul class="filter-items checkbox-list">
+                                <li>
+                                    <input type="checkbox" class="filter-checkbox">
+                                    <span>XS</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" class="filter-checkbox">
+                                    <span>S</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" class="filter-checkbox">
+                                    <span>M</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" class="filter-checkbox">
+                                    <span>L</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" class="filter-checkbox">
+                                    <span>XL</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <div class="filter-title">
+                            <h2>Price</h2>
+                            <img src="assets/icons/chevron-down.svg" alt="" class="arrow-icon">
+                        </div>
+                        <div class="dropdown-list price-dropdown">
+                            <div class="price-fields">
+                                <div class="price-inputs">
+                                    <span class="currency">Rp.</span>
+                                    <input type="number" placeholder="Min" class="price-input">
+                                </div>
+                                <div class="price-inputs">
+                                    <span class="currency">Rp.</span>
+                                    <input type="number" placeholder="Max" class="price-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid">
+                <div class="product-container">
+                    <!-- Collection Banner -->
+                    <div class="collection-banner">
+                        <div class="banner-container" data-aos="fade-up" data-aos-duration="500">
+                            <img src="assets/images/collection-banner.png" alt="" class="banner-image">
+                            <div class="banner-overlay">
+                                <h1>New Collection</h1>
+                                <button class="shop-now-btn">Shop Now <span class="arrow">--></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Items -->
+                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-1.png" alt="Bando Rajut" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Bando Rajut</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-2.png" alt="Bookmark Crochet" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Bookmark Crochet</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-3.png" alt="Child Crochet Bucket Hat" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Child Crochet Bucket Hat</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-4.png" alt="Crochet Sling Bag" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Crochet Sling Bag</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-5.png" alt="Crochet Tote Bag" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Crochet Tote Bag</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-6.png" alt="Dompet Rajut" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Dompet Rajut</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-7.png" alt="Gantungan Kunci" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Gantungan Kunci</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-8.png" alt="Gantungan Tas" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Gantungan Tas</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="footer-links">
+                        <li class="footer-title">Rewear</li>
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li onclick="togglePopup(true)" class="clickable">Contact Us</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" class="footer-links">
+                        <li class="footer-title">Help</li>
+                        <li onclick="togglePopup(true)" class="clickable">FAQ</li>
+                        <li onclick="togglePopup(true)" class="clickable">Payment</li>
+                        <li onclick="togglePopup(true)" class="clickable">Privacy and Policy</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="600" class="footer-links">
+                        <li class="footer-title">Customer</li>
+                        <li onclick="togglePopup(true)" class="clickable">Voucher</li>
+                        <li onclick="togglePopup(true)" class="clickable">Order Track</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" class="footer-links">
+                        <li class="footer-title">Products</li>
+                        <li onclick="togglePopup(true)" class="clickable">Sale</li>
+                        <li class="clickable"><a href="collection.html">New Collections</a></li>
+                    </ul>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="800" class="footer-social">
+                    <a href="index.html"><h1 class="logo">Rewear.co</h1></a>
+                    <h2 class="social-title">Follow Us</h2>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <!-- Instagram icon placeholder -->
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- Facebook icon placeholder -->
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- Twitter icon placeholder -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Filter Sidebar -->
+    <div id="filterSidebar" class="filter-sidebar">
+        <button id="crossFilter" class="close-filter-btn"><img src="assets/icons/close-icon.svg" alt=""></button>
+        <div class="filter-content">
+            <div class="filter-header">
+                <h2>Filter</h2>
+            </div>
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleDropdown(this)">
+                    <h2>Category</h2>
+                    <img src="assets/icons/chevron-down.svg" alt="" class="arrow-icon">
+                </div>
+                <div class="dropdown-list">
+                    <ul class="filter-items">
+                        <li class="active">All</li>
+                        <li>T-Shirts</li>
+                        <li>Dresses</li>
+                        <li>Pants</li>
+                        <li>Accessories</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleDropdown(this)">
+                    <h2>Collection</h2>
+                    <img src="assets/icons/chevron-down.svg" alt="" class="arrow-icon">
+                </div>
+                <div class="dropdown-list">
+                    <ul class="filter-items">
+                        <li class="active">All Collections</li>
+                        <li>Summer 2023</li>
+                        <li>Eco Essentials</li>
+                        <li>Winter Warmers</li>
+                        <li>Sustainable Basics</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleDropdown(this)">
+                    <h2>Size</h2>
+                    <img src="assets/icons/chevron-down.svg" alt="" class="arrow-icon">
+                </div>
+                <div class="dropdown-list">
+                    <ul class="filter-items checkbox-list">
+                        <li>
+                            <input type="checkbox" class="filter-checkbox">
+                            <span>XS</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filter-checkbox">
+                            <span>S</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filter-checkbox">
+                            <span>M</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filter-checkbox">
+                            <span>L</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filter-checkbox">
+                            <span>XL</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleDropdown(this)">
+                    <h2>Price</h2>
+                    <img src="assets/icons/chevron-down.svg" alt="" class="arrow-icon">
+                </div>
+                <div class="dropdown-list price-dropdown">
+                    <div class="price-fields">
+                        <div class="price-inputs">
+                            <span class="currency">Rp.</span>
+                            <input type="number" placeholder="Min" class="price-input">
+                        </div>
+                        <div class="price-inputs">
+                            <span class="currency">Rp.</span>
+                            <input type="number" placeholder="Max" class="price-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <img src="assets/icons/spinner.svg" alt="" class="popup-icon">
+            <h2>Coming Soon</h2>
+            <p>This feature is not available yet.</p>
+            <button onclick="togglePopup(false)" class="close-popup-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Navigation functions
+        const hamburger = document.getElementById('hamburger');
+        const cross = document.getElementById('cross');
+        const sidebar = document.getElementById('sidebar');
+        const nav = document.getElementById('nav');
+        const filterButton = document.querySelector('.filter-button');
+        const crossFilter = document.getElementById('crossFilter');
+        const filterSidebar = document.getElementById('filterSidebar');
+        const popup = document.getElementById('popup');
+
+        hamburger.addEventListener('click', function() {
+            nav.style.pointerEvents = 'all';
+            sidebar.classList.add('slide-in-left-active');
+        });
+
+        cross.addEventListener('click', function() {
+            sidebar.classList.remove('slide-in-left-active');
+            nav.style.pointerEvents = 'none';
+        });
+
+        function toggleFilter() {
+            filterSidebar.classList.add('slide-in-active');
+        }
+
+        crossFilter.addEventListener('click', function() {
+            filterSidebar.classList.remove('slide-in-active');
+        });
+
+        function togglePopup(show) {
+            popup.style.display = show ? 'flex' : 'none';
+        }
+
+        function toggleDropdown(element) {
+            const dropdown = element.nextElementSibling;
+            const arrow = element.querySelector('.arrow-icon');
+            
+            if (dropdown.classList.contains('open')) {
+                dropdown.classList.remove('open');
+                arrow.classList.remove('rotated');
+            } else {
+                dropdown.classList.add('open');
+                arrow.classList.add('rotated');
+            }
+            
+            const listItems = dropdown.querySelectorAll('li');
+            listItems.forEach(item => {
+                if (item.classList.contains('active')) {
+                    item.style.opacity = 1;
+                } else {
+                    if (dropdown.classList.contains('open')) {
+                        item.style.opacity = 0.6;
+                    } else {
+                        item.style.opacity = 0;
+                    }
+                }
+            });
+        }
+
+        // Initialize dropdowns on desktop
+        const desktopDropdowns = document.querySelectorAll('.desktop-sidebar .filter-title');
+        desktopDropdowns.forEach(dropdown => {
+            const dropdownList = dropdown.nextElementSibling;
+            dropdownList.classList.add('open');
+            const listItems = dropdownList.querySelectorAll('li');
+            listItems.forEach(item => {
+                item.style.opacity = item.classList.contains('active') ? 1 : 0.6;
+            });
+        });
+
+        function searching() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.style.display = searchBar.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>

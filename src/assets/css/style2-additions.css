@@ -1,0 +1,166 @@
+/* Additional styles to fix display issues in index.html */
+
+/* Hero section fixes */
+.hero-section {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 8.372vw;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #f6f5f2;
+}
+
+.hero-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 25px;
+    max-width: 600px;
+}
+
+/* Category section fixes */
+.category-section {
+    padding: 0 8.372vw;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: black;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.category-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 250px;
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.category-title {
+    color: #f6f5f2;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* New arrivals section fixes */
+.new-arrivals-section {
+    padding: 0 8.372vw;
+    margin-bottom: 60px;
+}
+
+/* About section fixes */
+.about-section {
+    padding: 40px 8.372vw;
+    margin-bottom: 60px;
+    background-color: #f0efeb;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: black;
+    margin-bottom: 20px;
+}
+
+.about-description {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: black;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.about-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid black;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    align-self: center;
+}
+
+.about-button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Footer spacing fixes */
+.footer {
+    margin-top: 0;
+}
+
+/* View all products button */
+.view-all-button {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .hero-content {
+        padding: 20px 8.372vw;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+}
