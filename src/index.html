@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewear.co - Sustainable Fashion</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/style2-additions.css">
+</head>
+<body id="body" class="relative">
+    <!-- Mobile Navigation Sidebar -->
+    <div id="nav" class="mobile-nav">
+        <div id="sidebar" class="sidebar">
+            <button id="cross" class="close-btn"><img src="assets/icons/close-icon.svg" alt=""></button>
+            <a href="index.html"><h1 class="logo">Rewear.co</h1></a>
+            <ul class="sidebar-menu">
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="location.html">Store Location</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="desktop-menu">
+                <ul class="nav-links">
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="200"><a href="collection.html">Collection</a></li>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="300"><a href="product.html">Product</a></li>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="400"><a href="blog.html">Blog</a></li>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="500"><a href="location.html">Store Location</a></li>
+                </ul>
+            </div>
+            <div class="logo-container">
+                <button data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" id="hamburger" class="hamburger"><img src="assets/icons/hamburger.svg" alt=""></button>
+                <a href="index.html"><h1 data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="logo" style="color: black;">Rewear.co</h1></a>
+            </div>
+            <div class="nav-actions">
+                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" class="search-container">
+                    <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon">
+                        <path d="M16.031 14.617L20.314 18.899L18.899 20.314L14.617 16.031C13.0237 17.3082 11.042 18.0029 9 18C4.032 18 0 13.968 0 9C0 4.032 4.032 0 9 0C13.968 0 18 4.032 18 9C18.0029 11.042 17.3082 13.0237 16.031 14.617ZM14.025 13.875C15.2938 12.5697 16.0025 10.8204 16 9C16 5.133 12.867 2 9 2C5.133 2 2 5.133 2 9C2 12.867 5.133 16 9 16C10.8204 16.0025 12.5697 15.2938 13.875 14.025L14.025 13.875Z" fill="#000"/>
+                    </svg>
+                    <input type="text" placeholder="Search" class="search-input" />
+                </div>
+                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="350" class="mobile-search">
+                    <button href="" onclick="searching()">
+                        <img src="assets/icons/search.svg" alt="" class="mobile-search-icon">
+                    </button>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="350" class="nav-icon">
+                    <button>
+                        <a href="bag.html">
+                            <img src="assets/icons/bag-icon-black.svg" alt="" class="icon">
+                        </a>
+                    </button>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="300" class="nav-icon">
+                    <button>
+                        <a href="login.html">
+                            <img src="assets/icons/profile-icon.svg" alt="" class="icon">
+                        </a>
+                    </button>
+                </div>
+            </div>  
+        </nav>
+        
+        <!-- Mobile Search Bar -->
+        <div class="mobile-search-container">
+            <div id="searchBar" class="mobile-search-bar">
+                <button><img src="assets/icons/search.svg" alt="" class="mobile-search-icon"></button>
+                <input type="text" placeholder="Search" class="mobile-search-input" />
+            </div>  
+        </div>
+        
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-image-container">
+                <img src="assets/images/collections-image.png" alt="Rewear Hero" class="hero-image">
+                <div class="hero-content">
+                    <h1 data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="hero-title">Sustainable Fashion<br>For Everyone</h1>
+                    <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" class="hero-description">Discover our collection of eco-friendly, ethically sourced clothing that doesn't compromise on style or comfort.</p>
+                    <a href="collection.html" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="shop-now-btn">Shop Collection <span class="arrow">--></span></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Featured Categories -->
+        <div class="category-section">
+            <h2 data-aos="fade-up" data-aos-duration="500" class="section-title">Shop By Category</h2>
+            <div class="category-grid">
+                <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="category-item">
+                    <img src="assets/images/cloth-1.png" alt="Shirts" class="category-image">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Shirts</h3>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" class="category-item">
+                    <img src="assets/images/cloth-5.png" alt="Vests" class="category-image">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Vests</h3>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="category-item">
+                    <img src="assets/images/cloth-7.png" alt="Bags" class="category-image">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Bags</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- New Arrivals -->
+        <div class="new-arrivals-section">
+            <h2 data-aos="fade-up" data-aos-duration="500" class="section-title">New Arrivals</h2>
+            <div class="product-container">
+                <!-- Item 1 -->
+                <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="product-item">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/cloth-2.png" alt="Bando Rajut" class="product-card-image">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">
+                                <h2>Bando Rajut</h2>
+                                <p>T - Shirt</p>
+                            </div>
+                            <div class="product-card-price">
+                                <h2>Rp. 175.000</h2>
+                                <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" class="product-item">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/cloth-3.png" alt="Bookmark Crochet" class="product-card-image">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">
+                                <h2>Bookmark Crochet</h2>
+                                <p>T - Shirt</p>
+                            </div>
+                            <div class="product-card-price">
+                                <h2>Rp. 175.000</h2>
+                                <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="product-item">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/cloth-4.png" alt="Child Crochet Bucket Hat" class="product-card-image">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">
+                                <h2>Child Crochet Bucket Hat</h2>
+                                <p>T - Shirt</p>
+                            </div>
+                            <div class="product-card-price">
+                                <h2>Rp. 175.000</h2>
+                                <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" class="product-item">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/cloth-8.png" alt="Crochet Sling Bag" class="product-card-image">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">
+                                <h2>Crochet Sling Bag</h2>
+                                <p>T - Shirt</p>
+                            </div>
+                            <div class="product-card-price">
+                                <h2>Rp. 175.000</h2>
+                                <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="product.html" data-aos="fade-up" data-aos-duration="500" data-aos-delay="600" class="view-all-button">View All Products</a>
+        </div>
+        
+        <!-- About Section -->
+        <div class="about-section">
+            <div class="about-content">
+                <h2 data-aos="fade-up" data-aos-duration="500" class="about-title">About Rewear.co</h2>
+                <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="about-description">
+                    Rewear.co is dedicated to sustainable fashion that doesn't compromise on style. We believe in creating high-quality, timeless pieces that are kind to the planet and the people who make them. Our mission is to transform the fashion industry by promoting conscious consumption and ethical production practices.
+                </p>
+                <a href="about.html" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" class="about-button">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="footer-links">
+                        <li class="footer-title">Rewear</li>
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li onclick="togglePopup(true)" class="clickable">Contact Us</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" class="footer-links">
+                        <li class="footer-title">Help</li>
+                        <li onclick="togglePopup(true)" class="clickable">FAQ</li>
+                        <li onclick="togglePopup(true)" class="clickable">Payment</li>
+                        <li onclick="togglePopup(true)" class="clickable">Privacy and Policy</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="600" class="footer-links">
+                        <li class="footer-title">Customer</li>
+                        <li onclick="togglePopup(true)" class="clickable">Voucher</li>
+                        <li onclick="togglePopup(true)" class="clickable">Order Track</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" class="footer-links">
+                        <li class="footer-title">Products</li>
+                        <li onclick="togglePopup(true)" class="clickable">Sale</li>
+                        <li class="clickable"><a href="collection.html">New Collections</a></li>
+                    </ul>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="800" class="footer-social">
+                    <a href="index.html"><h1 class="logo">Rewear.co</h1></a>
+                    <h2 class="social-title">Follow Us</h2>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <!-- Instagram icon placeholder -->
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- Facebook icon placeholder -->
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- Twitter icon placeholder -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <img src="assets/icons/spinner.svg" alt="" class="popup-icon">
+            <h2>Coming Soon</h2>
+            <p>This feature is not available yet.</p>
+            <button onclick="togglePopup(false)" class="close-popup-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        
+        const hamburger = document.getElementById('hamburger');
+        const cross = document.getElementById('cross');
+        const sidebar = document.getElementById('sidebar');
+        const nav = document.getElementById('nav');
+        const popup = document.getElementById('popup');
+
+        hamburger.addEventListener('click', function() {
+            nav.style.pointerEvents = 'all';
+            sidebar.classList.add('slide-in-left-active');
+        });
+
+        cross.addEventListener('click', function() {
+            sidebar.classList.remove('slide-in-left-active');
+            nav.style.pointerEvents = 'none';
+        });
+
+        function togglePopup(show) {
+            popup.style.display = show ? 'flex' : 'none';
+        }
+
+        function searching() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.style.display = searchBar.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>
