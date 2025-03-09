@@ -3,20 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Detail</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <title>Product Detail - Rewear.co</title>
+    <style>
+        .product-detail-container {
+            padding: 0 8.372vw;
+            margin-bottom: 50px;
+        }
+        
+        .product-detail {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-gallery {
+            margin-bottom: 30px;
+        }
+        
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        
+        .thumbnail {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .thumbnail.active {
+            border-color: black;
+        }
+        
+        .product-info-container {
+            color: black;
+        }
+        
+        .product-title {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: 10px;
+        }
+        
+        .product-category {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .product-price-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .current-price {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: bold;
+        }
+        
+        .original-price {
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            text-decoration: line-through;
+            color: #666;
+        }
+        
+        .discount-badge {
+            background-color: #e53e3e;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .product-options {
+            margin-bottom: 30px;
+        }
+        
+        .option-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .size-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .size-option {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e5e5e5;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .size-option:hover, .size-option.active {
+            background-color: black;
+            color: white;
+            border-color: black;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f0f0;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #e5e5e5;
+            margin: 0 10px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .add-to-cart-btn {
+            padding: 15px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .wishlist-btn {
+            padding: 15px;
+            background-color: white;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid black;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .product-meta {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .meta-item {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .meta-label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .product-tabs {
+            margin-top: 50px;
+        }
+        
+        .tab-headers {
+            display: flex;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 20px;
+        }
+        
+        .tab-header {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab-header.active {
+            border-bottom-color: black;
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .related-products {
+            margin-top: 50px;
+        }
+        
+        .section-title {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .related-products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .product-detail {
+                flex-direction: row;
+                gap: 50px;
+            }
+            
+            .product-gallery {
+                flex: 1;
+                margin-bottom: 0;
+            }
+            
+            .product-info-container {
+                flex: 1;
+            }
+            
+            .thumbnail {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .related-products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .action-buttons {
+                flex-direction: row;
+            }
+            
+            .add-to-cart-btn {
+                flex: 2;
+            }
+            
+            .wishlist-btn {
+                flex: 1;
+            }
+        }
+    </style>
 </head>
-<body id="body">
+<body id="body" class="relative">
     <div class="container">
         <!-- Mobile Navigation Sidebar -->
         <div id="nav" class="mobile-nav">
             <div id="sidebar" class="sidebar">
                 <button id="cross" class="close-btn"><img src="assets/icons/close-icon.svg" alt=""></button>
-                <a href="index.html"><h1 class="logo">Treadwear.co</h1></a>
+                <a href="index.html"><h1 class="logo">Rewear.co</h1></a>
                 <ul class="sidebar-menu">
                     <li><a href="collection.html">Collection</a></li>
-                    <li><a href="dashboard.html">Product</a></li>
+                    <li><a href="product.html">Product</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="location.html">Store Location</a></li>
                 </ul>
@@ -24,35 +308,35 @@
         </div>
         
         <!-- Navigation -->
-        <nav data-aos="fade-right" class="main-nav">
+        <nav class="main-nav">
             <div class="desktop-menu">
                 <ul class="nav-links">
                     <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="200"><a href="collection.html">Collection</a></li>
-                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="300"><a href="dashboard.html">Product</a></li>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="300"><a href="product.html">Product</a></li>
                     <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="400"><a href="blog.html">Blog</a></li>
                     <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="500"><a href="location.html">Store Location</a></li>
                 </ul>
             </div>
             <div class="logo-container">
                 <button data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" id="hamburger" class="hamburger"><img src="assets/icons/hamburger.svg" alt=""></button>
-                <a href="index.html"><h1 data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="logo">Treadwear.co</h1></a>
+                <a href="index.html"><h1 data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="logo" style="color: black;">Rewear.co</h1></a>
             </div>
             <div class="nav-actions">
                 <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" class="search-container">
                     <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon">
-                        <path d="M16.031 14.617L20.314 18.899L18.899 20.314L14.617 16.031C13.0237 17.3082 11.042 18.0029 9 18C4.032 18 0 13.968 0 9C0 4.032 4.032 0 9 0C13.968 0 18 4.032 18 9C18.0029 11.042 17.3082 13.0237 16.031 14.617ZM14.025 13.875C15.2938 12.5697 16.0025 10.8204 16 9C16 5.133 12.867 2 9 2C5.133 2 2 5.133 2 9C2 12.867 5.133 16 9 16C10.8204 16.0025 12.5697 15.2938 13.875 14.025L14.025 13.875Z" fill="#FFF"/>
+                        <path d="M16.031 14.617L20.314 18.899L18.899 20.314L14.617 16.031C13.0237 17.3082 11.042 18.0029 9 18C4.032 18 0 13.968 0 9C0 4.032 4.032 0 9 0C13.968 0 18 4.032 18 9C18.0029 11.042 17.3082 13.0237 16.031 14.617ZM14.025 13.875C15.2938 12.5697 16.0025 10.8204 16 9C16 5.133 12.867 2 9 2C5.133 2 2 5.133 2 9C2 12.867 5.133 16 9 16C10.8204 16.0025 12.5697 15.2938 13.875 14.025L14.025 13.875Z" fill="#000"/>
                     </svg>
                     <input type="text" placeholder="Search" class="search-input" />
                 </div>
                 <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="350" class="mobile-search">
                     <button href="" onclick="searching()">
-                        <img src="assets/icons/search-white.svg" alt="" class="mobile-search-icon">
+                        <img src="assets/icons/search.svg" alt="" class="mobile-search-icon">
                     </button>
                 </div>
                 <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="350" class="nav-icon">
                     <button>
                         <a href="bag.html">
-                            <img src="assets/icons/bag-icon.svg" alt="" class="icon">
+                            <img src="assets/icons/bag-icon-black.svg" alt="" class="icon">
                         </a>
                     </button>
                 </div>
@@ -63,532 +347,276 @@
                         </a>
                     </button>
                 </div>
-            </div>    
+            </div>  
         </nav>
         
         <!-- Mobile Search Bar -->
         <div class="mobile-search-container">
             <div id="searchBar" class="mobile-search-bar">
-                <button><img src="assets/icons/search-white.svg" alt="" class="mobile-search-icon"></button>
+                <button><img src="assets/icons/search.svg" alt="" class="mobile-search-icon"></button>
                 <input type="text" placeholder="Search" class="mobile-search-input" />
             </div>  
         </div>
         
         <!-- Breadcrumb -->
         <div class="breadcrumb-container">
-            <ul class="breadcrumb">
-                <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="300"><a href="index.html">Home</a></li>
-                <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="350">/</li>
-                <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="400"><a href="dashboard.html">All Products</a></li>
-                <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="450">/</li>
-                <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="500">Soft Green Oversized Shirt</li>
-            </ul>
+            <div class="breadcrumb-section">
+                <ul class="breadcrumb">
+                    <a data-aos="fade-right" data-aos-duration="500" data-aos-delay="200" href="index.html"><li>Home</li></a>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">/</li>
+                    <a data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" href="collection.html"><li>Collection</li></a>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="300">/</li>
+                    <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="400">Semi Kemeja Cream</li>
+                </ul>
+            </div>
         </div>
-
-        <!-- Product Detail Section -->
-        <section class="product-detail-section">
-            <div class="product-detail-container">
-                <div class="product-gallery">
-                    <div class="gallery-container">
-                        <div id="sliderContainer" class="slider-container">
-                            <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" class="slide">
-                                <img src="assets/images/detail-1.png" alt="" class="slide-image">
-                            </div>
-                            <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="350" class="slide">
-                                <img src="assets/images/detail-2.png" alt="" class="slide-image">
-                            </div>
-                            <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="slide">
-                                <img src="assets/images/detail-3.png" alt="" class="slide-image">
-                            </div>
-                            <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="450" class="slide">
-                                <img src="assets/images/detail-1.png" alt="" class="slide-image">
-                            </div>
-                            <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" class="slide">
-                                <img src="assets/images/detail-2.png" alt="" class="slide-image">
-                            </div>
-                            <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="550" class="slide">
-                                <img src="assets/images/detail-3.png" alt="" class="slide-image">
-                            </div>
-                        </div>
-                        <button data-aos="fade-right" data-aos-duration="500" data-aos-delay="600" id="prevBtn" class="slider-btn prev-btn">
-                            <svg viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon prev-icon">
-                                <path d="M11.91 -3.91006e-05L12.97 1.06096L7.193 6.83996C7.10043 6.93312 6.99036 7.00704 6.86911 7.05749C6.74786 7.10794 6.61783 7.13391 6.4865 7.13391C6.35517 7.13391 6.22514 7.10794 6.10389 7.05749C5.98264 7.00704 5.87257 6.93312 5.78 6.83996L0 1.06096L1.06 0.000960827L6.485 5.42496L11.91 -3.91006e-05Z" fill="#131314"/>
-                            </svg>
-                        </button>
-                        <button data-aos="fade-left" data-aos-duration="500" data-aos-delay="600" id="nextBtn" class="slider-btn next-btn">
-                            <svg viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon next-icon">
-                                <path d="M11.91 -3.91006e-05L12.97 1.06096L7.193 6.83996C7.10043 6.93312 6.99036 7.00704 6.86911 7.05749C6.74786 7.10794 6.61783 7.13391 6.4865 7.13391C6.35517 7.13391 6.22514 7.10794 6.10389 7.05749C5.98264 7.00704 5.87257 6.93312 5.78 6.83996L0 1.06096L1.06 0.000960827L6.485 5.42496L11.91 -3.91006e-05Z" fill="#131314"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="product-content">
-                    <!-- Mobile Product Details -->
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" class="mobile-product-details">
-                        <div class="product-info">
-                            <h2 class="product-title">Soft Green Oversized</h2>
-                            <p class="product-category">T - Shirt</p>
-                            <div class="product-rating">
-                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                            </div>
-                        </div>
-                        <div class="product-price">
-                            <h2 class="current-price">Rp. 175.000</h2>
-                            <h2 class="original-price"><s>Rp. 350.000</s></h2>
-                        </div>
-                        <div class="product-size">
-                            <h2 class="size-title">Size</h2>
-                            <div class="size-options">
-                                <div class="size-option">
-                                    <input type="radio" id="option7" name="option" class="size-input">
-                                    <label for="option7" class="size-label">S</label>
-                                </div>
-                                <div class="size-option">
-                                    <input type="radio" id="option8" name="option" class="size-input">
-                                    <label for="option8" class="size-label">M</label>
-                                </div>
-                                <div class="size-option">
-                                    <input type="radio" id="option9" name="option" class="size-input">
-                                    <label for="option9" class="size-label">L</label>
-                                </div>
-                                <div class="size-option">
-                                    <input type="radio" id="option10" name="option" class="size-input">
-                                    <label for="option10" class="size-label">XL</label>
-                                </div>
-                                <div class="size-option">
-                                    <input type="radio" id="option11" name="option" class="size-input">
-                                    <label for="option11" class="size-label">XXL</label>
-                                </div>
-                                <div class="size-option">
-                                    <input type="radio" id="option12" name="option" class="size-input">
-                                    <label for="option12" class="size-label">XXXL</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-quantity">
-                            <h2 class="quantity-title">Quantity</h2>
-                            <div class="quantity-selector">
-                                <button class="quantity-btn" onclick="decrement()">-</button>
-                                <span id="quantity" class="quantity-value">1</span>
-                                <button class="quantity-btn" onclick="increment()">+</button>
-                            </div>
-                        </div>
-                        <div class="product-actions">
-                            <button class="add-to-bag-btn"><a href="bag.html">Add to Bag</a></button>
-                            <button class="favorite-btn">
-                                <img src="assets/icons/love-icon.svg" alt="" class="favorite-icon">
-                                <span>Favorite</span>
-                            </button>
-                        </div>
-                        
-                        <!-- Product Details Accordion -->
-                        <div class="product-accordion">
-                            <div class="accordion-item">
-                                <a href="javascript:void(0)" onclick="productDetails()" class="accordion-header">
-                                    <h2 class="accordion-title">Product Details</h2>
-                                    <img id="arrowIcon9" src="assets/icons/arrow-icon.svg" alt="" class="accordion-arrow">
-                                </a>
-                                <hr>
-                                <div class="accordion-content" id="ProductDetail">
-                                    <p>Oversized Streetwear T-Shirt - "Soft Green Oversized"</p>
-                                    
-                                    <ul id="productDetailsList" class="details-list">
-                                        <li class="detail-item">Color : Green</li>
-                                        <li class="detail-item">Size : Oversized</li>
-                                        <li class="detail-item">Material : 100% Cotton</li>
-                                    </ul>
-                                
-                                    <div class="features">
-                                        <p>Features :</p>
-                                        <ul id="featuresList" class="features-list">
-                                            <li class="feature-item">Oversized Fit: The t-shirt has a relaxed, oversized fit for a comfortable and stylish look.</li>
-                                            <li class="feature-item">High-Quality Material: Made from 100% soft cotton for maximum comfort and breathability.</li>
-                                            <li class="feature-item">Durable Construction: The t-shirt is built to last with double-stitched seams and a reinforced neckline.</li>
-                                            <li class="feature-item">Eye-Catching Design: Clean green graphic and text make this t-shirt a standout piece.</li>
-                                        </ul>
-                                    </div>
-                                
-                                    <div class="care-instructions">
-                                        <p>Care Instructions :</p>
-                                        <ul id="careInstructionsList" class="care-list">
-                                            <li class="care-item">Machine wash cold with like colors</li>
-                                            <li class="care-item">Tumble dry low</li>
-                                            <li class="care-item">Do not iron directly on the graphic</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="accordion-item">
-                                <a href="javascript:void(0)" onclick="moreInfo()" class="accordion-header">
-                                    <h2 class="accordion-title">More Info</h2>
-                                    <img id="arrowIcon10" src="assets/icons/arrow-icon.svg" alt="" class="accordion-arrow">
-                                </a>
-                                <hr>
-                                <div class="accordion-content" id="moreInfo">
-                                    <p class="more-info-text">Soft Green means something different to everyone. Let this oversized T-shirt be the canvas for your story. Pair it with your favorite accessories and create a unique and personal style.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Mobile Product Details -->
-
-                    <!-- Rating & Review Section -->
-                    <div class="rating-review-section">
-                        <h2 data-aos="fade-right" data-aos-duration="500" data-aos-delay="200" class="section-title">Rating & Review</h2>
-                        <div class="rating-summary">
-                            <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="250" class="rating-average">
-                                <h1 class="average-score">4,34</h1>
-                                <div class="rating-stars">
-                                    <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                    <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                    <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                    <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                    <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                </div>
-                                <h2 class="review-count">23 Reviews</h2>
-                            </div>
-                            <div class="rating-bars">
-                                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="300" class="rating-bar-item">
-                                    <div class="rating-label">
-                                        <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                        <p class="rating-number">1</p>
-                                    </div>
-                                    <div class="rating-progress">
-                                        <div class="progress-bar" style="width: 30%"></div>
-                                    </div>                            
-                                </div>
-                                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="350" class="rating-bar-item">
-                                    <div class="rating-label">
-                                        <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                        <p class="rating-number">2</p>
-                                    </div>
-                                    <div class="rating-progress">
-                                        <div class="progress-bar" style="width: 55%"></div>
-                                    </div>                              
-                                </div>
-                                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" class="rating-bar-item">
-                                    <div class="rating-label">
-                                        <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                        <p class="rating-number">3</p>
-                                    </div>
-                                    <div class="rating-progress">
-                                        <div class="progress-bar" style="width: 75%"></div>
-                                    </div>                             
-                                </div>
-                                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="450" class="rating-bar-item">
-                                    <div class="rating-label">
-                                        <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                        <p class="rating-number">4</p>
-                                    </div>
-                                    <div class="rating-progress">
-                                        <div class="progress-bar" style="width: 45%"></div>
-                                    </div>                              
-                                </div>
-                                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="500" class="rating-bar-item">
-                                    <div class="rating-label">
-                                        <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                        <p class="rating-number">5</p>
-                                    </div>
-                                    <div class="rating-progress">
-                                        <div class="progress-bar" style="width: 80%"></div>
-                                    </div>                              
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" class="write-review">
-                            <h2 class="write-review-title">Writing Review</h2>
-                            <div class="review-stars">
-                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="outline-star">
-                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="outline-star">
-                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="outline-star">
-                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="outline-star">
-                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="outline-star">
-                            </div>
-                        </div>
         
-                        <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" class="review-form">
-                            <h2 class="review-form-title">Review</h2>
-                            <textarea class="review-textarea" placeholder="Write your review here..."></textarea>
-                        </div>
-                        
-                        <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" class="upload-media">
-                            <h2 class="upload-title">Photo or Video (Optional)</h2>
-                            <label for="file-upload" class="upload-area">
-                                <div class="upload-icon-container">
-                                    <img src="assets/icons/upload-icon.svg" alt="" class="upload-icon">
-                                </div>
-                                <span class="upload-text">Upload your product photo</span>
-                                <input id="file-upload" type="file" class="hidden-input" />
-                            </label>
-                        </div>
-        
-                        <div class="user-info">
-                            <h2 data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" class="user-info-title">Your Public Name & Email</h2>
-                            <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="350" class="user-inputs">
-                                <input type="text" class="user-input" placeholder="Your name">
-                                <input type="email" class="user-input" placeholder="Your Email">
-                            </div>
-                            <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="400" class="review-buttons">
-                                <button class="submit-review-btn">Submit Review</button>
-                                <button class="cancel-review-btn">Cancel Review</button>
-                            </div>
-                        </div>
+        <!-- Product Detail Content -->
+        <div class="product-detail-container">
+            <div class="product-detail">
+                <!-- Product Gallery -->
+                <div class="product-gallery" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+                    <div class="main-image-container">
+                        <img src="assets/images/cloth-1.png" alt="Semi Kemeja Cream" class="main-image" id="mainImage">
                     </div>
-                    <!-- End Rating & Review Section -->
-        
-                    <!-- Customer Review Section -->
-                    <div class="customer-review-section">
-                        <h2 data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" class="section-title">Customer Review</h2>
-                        <div class="review-list">
-                            <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="350" class="review-item">
-                                <div class="review-header">
-                                    <div class="reviewer-info">
-                                        <img src="assets/images/reviewer-1.png" alt="" class="reviewer-avatar">
-                                        <div class="reviewer-details">
-                                            <h2 class="reviewer-name">Rick Atsley</h2>
-                                            <div class="reviewer-rating">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                            </div>
-                                            <h2 class="review-title">The size is a bit smaller than the previous one</h2>
-                                        </div>
-                                    </div>
-                                    <p class="review-date">23 / 09 / 2024</p>
-                                </div>
-                                <div class="review-content">
-                                    <p>The fabric is soft, and the fit is perfect. Love the stylish design and the color looks exactly like the picture. Great quality overall</p>
-                                </div>
-                            </div>
-                            
-                            <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="400" class="review-item">
-                                <div class="review-header">
-                                    <div class="reviewer-info">
-                                        <img src="assets/images/reviewer-2.png" alt="" class="reviewer-avatar">
-                                        <div class="reviewer-details">
-                                            <h2 class="reviewer-name">Gilbert Janong</h2>
-                                            <div class="reviewer-rating">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="star-icon">
-                                            </div>
-                                            <h2 class="review-title">The size is a bit smaller than the previous one</h2>
-                                        </div>
-                                    </div>
-                                    <p class="review-date">23 / 09 / 2024</p>
-                                </div>
-                                <div class="review-content">
-                                    <p>The fabric is soft, and the fit is perfect. Love the stylish design and the color looks exactly like the picture. Great quality overall</p>
-                                </div>
-                            </div>
-                            
-                            <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="450" class="review-item">
-                                <div class="review-header">
-                                    <div class="reviewer-info">
-                                        <img src="assets/images/reviewer-3.png" alt="" class="reviewer-avatar">
-                                        <div class="reviewer-details">
-                                            <h2 class="reviewer-name">Kevin Durant</h2>
-                                            <div class="reviewer-rating">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="star-icon">
-                                            </div>
-                                            <h2 class="review-title">The size is a bit smaller than the previous one</h2>
-                                        </div>
-                                    </div>
-                                    <p class="review-date">23 / 09 / 2024</p>
-                                </div>
-                                <div class="review-content">
-                                    <p>The fabric is soft, and the fit is perfect. Love the stylish design and the color looks exactly like the picture. Great quality overall</p>
-                                </div>
-                            </div>
-                            
-                            <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="500" class="review-item">
-                                <div class="review-header">
-                                    <div class="reviewer-info">
-                                        <img src="assets/images/reviewer-4.png" alt="" class="reviewer-avatar">
-                                        <div class="reviewer-details">
-                                            <h2 class="reviewer-name">Lebron James</h2>
-                                            <div class="reviewer-rating">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                            </div>
-                                            <h2 class="review-title">The size is a bit smaller than the previous one</h2>
-                                        </div>
-                                    </div>
-                                    <p class="review-date">23 / 09 / 2024</p>
-                                </div>
-                                <div class="review-content">
-                                    <p>The fabric is soft, and the fit is perfect. Love the stylish design and the color looks exactly like the picture. Great quality overall</p>
-                                </div>
-                            </div>
-                            
-                            <div data-aos="fade-right" data-aos-duration="500" data-aos-delay="550" class="review-item">
-                                <div class="review-header">
-                                    <div class="reviewer-info">
-                                        <img src="assets/images/reviewer-5.png" alt="" class="reviewer-avatar">
-                                        <div class="reviewer-details">
-                                            <h2 class="reviewer-name">Kai Cenat</h2>
-                                            <div class="reviewer-rating">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="star-icon">
-                                                <img src="assets/icons/outline-stars-icon.svg" alt="" class="star-icon">
-                                            </div>
-                                            <h2 class="review-title">The size is a bit smaller than the previous one</h2>
-                                        </div>
-                                    </div>
-                                    <p class="review-date">23 / 09 / 2024</p>
-                                </div>
-                                <div class="review-content">
-                                    <p>The fabric is soft, and the fit is perfect. Love the stylish design and the color looks exactly like the picture. Great quality overall</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="thumbnail-container">
+                        <img src="assets/images/cloth-1.png" alt="Semi Kemeja Cream - Front" class="thumbnail active" onclick="changeImage('assets/images/cloth-1.png', this)">
+                        <img src="assets/images/cloth-2.png" alt="Semi Kemeja Cream - Side" class="thumbnail" onclick="changeImage('assets/images/cloth-2.png', this)">
+                        <img src="assets/images/cloth-3.png" alt="Semi Kemeja Cream - Back" class="thumbnail" onclick="changeImage('assets/images/cloth-3.png', this)">
+                        <img src="assets/images/cloth-4.png" alt="Semi Kemeja Cream - Detail" class="thumbnail" onclick="changeImage('assets/images/cloth-4.png', this)">
                     </div>
-                    <!-- End Customer Review Section -->
                 </div>
                 
-                <!-- Desktop Product Details -->
-                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" class="desktop-product-details">
-                    <div class="product-info">
-                        <h2 class="product-title">Soft Green Oversized</h2>
-                        <p class="product-category">T - Shirt</p>
-                        <div class="product-rating">
-                            <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                            <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                            <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                            <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                            <img src="assets/icons/stars-icon.svg" alt="" class="star-icon">
-                        </div>
+                <!-- Product Info -->
+                <div class="product-info-container" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                    <h1 class="product-title">Semi Kemeja Cream</h1>
+                    <p class="product-category">Shirt</p>
+                    
+                    <div class="product-price-container">
+                        <span class="current-price">Rp. 175.000</span>
+                        <span class="original-price">Rp. 350.000</span>
+                        <span class="discount-badge">50% OFF</span>
                     </div>
-                    <div class="product-price">
-                        <h2 class="current-price">Rp. 175.000</h2>
-                        <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                    
+                    <div class="product-description">
+                        <p>This Semi Kemeja Cream shirt is made from high-quality sustainable materials, featuring a relaxed fit and versatile design. Perfect for casual outings or semi-formal events, this piece combines comfort with style.</p>
                     </div>
-                    <div class="product-size">
-                        <h2 class="size-title">Size</h2>
+                    
+                    <div class="product-options">
+                        <div class="option-title">Size</div>
                         <div class="size-options">
-                            <div class="size-option">
-                                <input type="radio" id="option1" name="option" class="size-input">
-                                <label for="option1" class="size-label">S</label>
-                            </div>
-                            <div class="size-option">
-                                <input type="radio" id="option2" name="option" class="size-input">
-                                <label for="option2" class="size-label">M</label>
-                            </div>
-                            <div class="size-option">
-                                <input type="radio" id="option3" name="option" class="size-input">
-                                <label for="option3" class="size-label">L</label>
-                            </div>
-                            <div class="size-option">
-                                <input type="radio" id="option4" name="option" class="size-input">
-                                <label for="option4" class="size-label">XL</label>
-                            </div>
-                            <div class="size-option">
-                                <input type="radio" id="option5" name="option" class="size-input">
-                                <label for="option5" class="size-label">XXL</label>
-                            </div>
-                            <div class="size-option">
-                                <input type="radio" id="option6" name="option" class="size-input">
-                                <label for="option6" class="size-label">XXXL</label>
-                            </div>
+                            <div class="size-option">S</div>
+                            <div class="size-option active">M</div>
+                            <div class="size-option">L</div>
+                            <div class="size-option">XL</div>
+                        </div>
+                        
+                        <div class="option-title">Quantity</div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" onclick="decrementQuantity()">-</button>
+                            <input type="text" value="1" class="quantity-input" id="quantityInput">
+                            <button class="quantity-btn" onclick="incrementQuantity()">+</button>
                         </div>
                     </div>
-                    <div class="product-quantity">
-                        <h2 class="quantity-title">Quantity</h2>
-                        <div class="quantity-selector desktop-quantity">
-                            <button class="quantity-btn" onclick="decrement1('quantity1')">-</button>
-                            <span id="quantity1" class="quantity-value">1</span>
-                            <button class="quantity-btn" onclick="increment1('quantity1')">+</button>
-                        </div>
-                    </div>                        
-                    <div class="product-actions">
-                        <button class="add-to-bag-btn"><a href="bag.html">Add to Bag</a></button>
-                        <button class="favorite-btn">
-                            <img src="assets/icons/love-icon.svg" alt="" class="favorite-icon">
-                            <span>Favorite</span>
+                    
+                    <div class="action-buttons">
+                        <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+                        <button class="wishlist-btn">
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 17.8L8.55 16.4C6.86667 14.85 5.475 13.4833 4.375 12.3C3.275 11.1167 2.4 10.0333 1.75 9.05C1.1 8.06667 0.645833 7.16667 0.3875 6.35C0.129167 5.53333 0 4.71667 0 3.9C0 2.76667 0.375 1.8 1.125 1C1.875 0.2 2.83333 -0.2 4 -0.2C4.81667 -0.2 5.5625 -0.0125 6.2375 0.3625C6.9125 0.7375 7.5 1.3 8 2.05C8.5 1.3 9.0875 0.7375 9.7625 0.3625C10.4375 -0.0125 11.1833 -0.2 12 -0.2C13.1667 -0.2 14.125 0.2 14.875 1C15.625 1.8 16 2.76667 16 3.9C16 4.71667 15.8708 5.53333 15.6125 6.35C15.3542 7.16667 14.9 8.06667 14.25 9.05C13.6 10.0333 12.725 11.1167 11.625 12.3C10.525 13.4833 9.13333 14.85 7.45 16.4L6 17.8H10Z" fill="black"/>
+                            </svg>
+                            Add to Wishlist
                         </button>
                     </div>
                     
-                    <!-- Desktop Product Accordion -->
-                    <div class="product-accordion desktop-accordion">
-                        <div class="accordion-item">
-                            <a href="javascript:void(0)" onclick="productDetails2()" class="accordion-header">
-                                <h2 class="accordion-title">Product Details</h2>
-                                <img id="arrowIcon11" src="assets/icons/arrow-icon.svg" alt="" class="accordion-arrow">
-                            </a>
-                            <hr>
-                            <div class="accordion-content" id="ProductDetail2">
-                                <p>Oversized Streetwear T-Shirt - "Soft Green Oversized"</p>
-                                
-                                <ul id="productDetailsList2" class="details-list">
-                                    <li class="detail-item">Color : Green</li>
-                                    <li class="detail-item">Size : Oversized</li>
-                                    <li class="detail-item">Material : 100% Cotton</li>
-                                </ul>
-                            
-                                <div class="features">
-                                    <p>Features :</p>
-                                    <ul id="featuresList2" class="features-list">
-                                        <li class="feature-item">Oversized Fit: The t-shirt has a relaxed, oversized fit for a comfortable and stylish look.</li>
-                                        <li class="feature-item">High-Quality Material: Made from 100% soft cotton for maximum comfort and breathability.</li>
-                                        <li class="feature-item">Durable Construction: The t-shirt is built to last with double-stitched seams and a reinforced neckline.</li>
-                                        <li class="feature-item">Eye-Catching Design: Clean green graphic and text make this t-shirt a standout piece.</li>
-                                    </ul>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">SKU:</span>
+                            <span>RW-SK-001</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Categories:</span>
+                            <span>Shirt, Sustainable Fashion, New Arrivals</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tags:</span>
+                            <span>Eco-friendly, Handmade, Organic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Tabs -->
+            <div class="product-tabs" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                <div class="tab-headers">
+                    <div class="tab-header active" onclick="switchTab('description')">Description</div>
+                    <div class="tab-header" onclick="switchTab('additional')">Additional Information</div>
+                    <div class="tab-header" onclick="switchTab('reviews')">Reviews (3)</div>
+                </div>
+                
+                <div id="description" class="tab-content active">
+                    <p>The Semi Kemeja Cream is a versatile and stylish shirt made from sustainable materials. It features a relaxed fit with a semi-formal design that makes it perfect for various occasions.</p>
+                    <p>Key features:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px; color: black;">
+                        <li>Made from 100% organic cotton</li>
+                        <li>Eco-friendly dyeing process</li>
+                        <li>Handcrafted by local artisans</li>
+                        <li>Reinforced stitching for durability</li>
+                        <li>Breathable fabric suitable for tropical climate</li>
+                    </ul>
+                </div>
+                
+                <div id="additional" class="tab-content">
+                    <table style="width: 100%; border-collapse: collapse; color: black;">
+                        <tr>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold;">Material</td>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5;">100% Organic Cotton</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold;">Weight</td>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5;">180 g/m²</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold;">Dimensions</td>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5;">Refer to size guide</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold;">Care Instructions</td>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5;">Machine wash cold, gentle cycle. Do not bleach. Hang dry.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold;">Origin</td>
+                            <td style="padding: 10px; border-bottom: 1px solid #e5e5e5;">Handmade in Indonesia</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div id="reviews" class="tab-content">
+                    <div style="margin-bottom: 30px; color: black;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div style="font-weight: bold;">Sarah K.</div>
+                            <div style="color: #666;">June 15, 2023</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 10px;">
+                            <span>★★★★★</span>
+                        </div>
+                        <p>Absolutely love this shirt! The material is so soft and comfortable, and the fit is perfect. I've received many compliments when wearing it. Highly recommend!</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px; color: black;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div style="font-weight: bold;">Michael T.</div>
+                            <div style="color: #666;">May 28, 2023</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 10px;">
+                            <span>★★★★☆</span>
+                        </div>
+                        <p>Great quality shirt, very comfortable. The only reason I'm giving 4 stars instead of 5 is that it runs slightly larger than expected. I would recommend sizing down if you're between sizes.</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px; color: black;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div style="font-weight: bold;">Rina A.</div>
+                            <div style="color: #666;">April 10, 2023</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 10px;">
+                            <span>★★★★★</span>
+                        </div>
+                        <p>I'm impressed with the quality and sustainability of this shirt. The cream color is versatile and goes with everything in my wardrobe. Will definitely be purchasing more from Rewear!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Products -->
+            <div class="related-products" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500">
+                <h2 class="section-title">You May Also Like</h2>
+                
+                <div class="related-products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-2.png" alt="Bando Rajut" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Bando Rajut</h2>
+                                    <p>T - Shirt</p>
                                 </div>
-                            
-                                <div class="care-instructions">
-                                    <p>Care Instructions :</p>
-                                    <ul id="careInstructionsList2" class="care-list">
-                                        <li class="care-item">Machine wash cold with like colors</li>
-                                        <li class="care-item">Tumble dry low</li>
-                                        <li class="care-item">Do not iron directly on the graphic</li>
-                                    </ul>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="accordion-item">
-                            <a href="javascript:void(0)" onclick="moreInfo2()" class="accordion-header">
-                                <h2 class="accordion-title">More Info</h2>
-                                <img id="arrowIcon12" src="assets/icons/arrow-icon.svg" alt="" class="accordion-arrow">
-                            </a>
-                            <hr>
-                            <div class="accordion-content" id="moreInfo2">
-                                <p class="more-info-text">Soft Green means something different to everyone. Let this oversized T-shirt be the canvas for your story. Pair it with your favorite accessories and create a unique and personal style.</p>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-3.png" alt="Bookmark Crochet" class="product-card-image">
                             </div>
-                        </div>                    
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Bookmark Crochet</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-4.png" alt="Child Crochet Bucket Hat" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Child Crochet Bucket Hat</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-item">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/cloth-5.png" alt="Handmade Cute Knitted Vest" class="product-card-image">
+                            </div>
+                            <div class="product-card-info">
+                                <div class="product-card-title">
+                                    <h2>Handmade Cute Knitted Vest</h2>
+                                    <p>T - Shirt</p>
+                                </div>
+                                <div class="product-card-price">
+                                    <h2>Rp. 175.000</h2>
+                                    <h2 class="original-price"><s>Rp. 350.000</s></h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- End Desktop Product Details -->
             </div>
-            <h1 class="background-text">T SHIRT</h1>
-        </section>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-column">
                     <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="footer-links">
-                        <li class="footer-title">Treadwear</li>
+                        <li class="footer-title">Rewear</li>
                         <li><a href="location.html">Location</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li onclick="togglePopup(true)" class="clickable">Contact Us</li>
@@ -611,13 +639,14 @@
                 </div>
                 <div class="footer-column">
                     <ul data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" class="footer-links">
+                        <li  data-aos-duration="500" data-aos-delay="700" class="footer-links">
                         <li class="footer-title">Products</li>
                         <li onclick="togglePopup(true)" class="clickable">Sale</li>
                         <li class="clickable"><a href="collection.html">New Collections</a></li>
                     </ul>
                 </div>
                 <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="800" class="footer-social">
-                    <a href="index.html"><h1 class="logo">Treadwear.co</h1></a>
+                    <a href="index.html"><h1 class="logo">Rewear.co</h1></a>
                     <h2 class="social-title">Follow Us</h2>
                     <div class="social-icons">
                         <a href="">
@@ -648,15 +677,97 @@
     
     <!-- Popup -->
     <div id="popup" class="popup">
-        <div class="popup-content" onclick="event.stopPropagation()">
-            <img src="assets/icons/gear-512.png" alt="" class="popup-icon">
-            <h2>This features is under developement now</h2>
-            <p>Sorry for the inconvinient</p>
+        <div class="popup-content">
+            <img src="assets/icons/spinner.svg" alt="" class="popup-icon">
+            <h2>Coming Soon</h2>
+            <p>This feature is not available yet.</p>
             <button onclick="togglePopup(false)" class="close-popup-btn">Close</button>
         </div>
     </div>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init();
+
+        // Navigation functions
+        const hamburger = document.getElementById('hamburger');
+        const cross = document.getElementById('cross');
+        const sidebar = document.getElementById('sidebar');
+        const nav = document.getElementById('nav');
+        const popup = document.getElementById('popup');
+
+        hamburger.addEventListener('click', function() {
+            nav.style.pointerEvents = 'all';
+            sidebar.classList.add('slide-in-left-active');
+        });
+
+        cross.addEventListener('click', function() {
+            sidebar.classList.remove('slide-in-left-active');
+            nav.style.pointerEvents = 'none';
+        });
+
+        function togglePopup(show) {
+            popup.style.display = show ? 'flex' : 'none';
+        }
+
+        function searching() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.style.display = searchBar.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Product detail functions
+        function changeImage(src, thumbnail) {
+            document.getElementById('mainImage').src = src;
+            
+            // Remove active class from all thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Add active class to clicked thumbnail
+            thumbnail.classList.add('active');
+        }
+
+        function incrementQuantity() {
+            const input = document.getElementById('quantityInput');
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decrementQuantity() {
+            const input = document.getElementById('quantityInput');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        function addToCart() {
+            // Add to cart logic would go here
+            togglePopup(true);
+            setTimeout(() => {
+                window.location.href = 'bag.html';
+            }, 1500);
+        }
+
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab headers
+            const tabHeaders = document.querySelectorAll('.tab-header');
+            tabHeaders.forEach(header => {
+                header.classList.remove('active');
+            });
+            
+            // Show selected tab content and activate header
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab-header[onclick="switchTab('${tabId}')"]`).classList.add('active');
+        }
+    </script>
 </body>
 </html>
+
