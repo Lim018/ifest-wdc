@@ -1,0 +1,483 @@
+/* Redesign Page Styles */
+.redesign-container {
+    padding: 0 8.372vw;
+    margin-bottom: 50px;
+    color: black;
+  }
+  
+  .redesign-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .redesign-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    text-align: center;
+    margin-bottom: 40px;
+    color: #666;
+  }
+  
+  .redesign-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* 3D Model Viewer */
+  .model-viewer-container {
+    width: 100%;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #model-viewer {
+    width: 100%;
+
+    height: 350px;
+    background-color: #f0f0f0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #model-viewer::before {
+    content: "Loading 3D Model...";
+    color: #666;
+    font-size: 1.2rem;
+  }
+  
+  .model-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+  }
+  
+  .control-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .control-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .control-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  #reset-view {
+    width: auto;
+    padding: 0 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Customization Panel */
+  .customization-panel {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .panel-section {
+    margin-bottom: 25px;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Item Selector */
+  .item-selector {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .item-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  
+  .item-option.active {
+    opacity: 1;
+    position: relative;
+  }
+  
+  .item-option.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+  }
+  
+  .item-option img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .item-option span {
+    font-size: 0.9rem;
+  }
+  
+  /* Color Picker */
+  .color-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #eee;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  
+  .color-option:hover {
+    transform: scale(1.1);
+  }
+  
+  .color-option.active {
+    border-color: #000;
+    transform: scale(1.1);
+  }
+  
+  /* Pattern Selector */
+  .pattern-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+  }
+  
+  .pattern-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  
+  .pattern-option.active {
+    opacity: 1;
+  }
+  
+  .pattern-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .pattern-option span {
+    font-size: 0.9rem;
+  }
+  
+  /* Material Selector */
+  .material-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+  }
+  
+  .material-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  
+  .material-option.active {
+    opacity: 1;
+  }
+  
+  .material-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .material-option span {
+    font-size: 0.9rem;
+  }
+  
+  /* Accessory Selector */
+  .accessory-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+  }
+  
+  .accessory-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .accessory-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;
+  }
+  
+  .accessory-preview img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .accessory-option span {
+    font-size: 0.9rem;
+  }
+  
+  .accessory-toggle {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  /* Action Buttons */
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+  }
+  
+  .primary-btn,
+  .secondary-btn {
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .primary-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+  }
+  
+  .primary-btn:hover {
+    background-color: #333;
+  }
+  
+  .secondary-btn {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+  }
+  
+  .secondary-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Saved Designs Section */
+  .saved-designs-section {
+    margin-top: 50px;
+  }
+  
+  .saved-designs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .saved-design {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .saved-design img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .design-info {
+    padding: 15px;
+  }
+  
+  .design-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  .design-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .design-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    background-color: #f0f0f0;
+    color: #000;
+    border: 1px solid #ddd;
+  }
+  
+  .delete-btn {
+    background-color: #fff;
+    color: #e53e3e;
+    border: 1px solid #e53e3e;
+  }
+  
+  /* Recommended Section */
+  .recommended-section {
+    margin-top: 50px;
+  }
+  
+  .recommended-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .recommended-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recommended-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .recommended-info {
+    padding: 15px;
+  }
+  
+  .recommended-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  .recommended-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .try-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    .redesign-content {
+      flex-direction: row;
+    }
+  
+    .model-viewer-container {
+      width: 60%;
+    }
+  
+    #model-viewer {
+      height: 500px;
+    }
+  
+    .customization-panel {
+      width: 40%;
+    }
+  
+    .action-buttons {
+      flex-direction: row;
+    }
+  
+    .saved-designs-grid,
+    .recommended-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .color-picker,
+    .pattern-selector,
+    .material-selector,
+    .accessory-selector {
+      justify-content: center;
+    }
+  
+    .saved-designs-grid,
+    .recommended-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  
+  

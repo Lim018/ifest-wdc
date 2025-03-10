@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redesign Your Clothes - Rewear.co</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="assets/css/style2.css">
+  <link rel="stylesheet" href="assets/css/redesign.css">
+</head>
+<body id="body" class="relative">
+  <div class="container">
+      <!-- Mobile Navigation Sidebar -->
+      <div id="nav" class="mobile-nav">
+          <div id="sidebar" class="sidebar">
+              <button id="cross" class="close-btn"><img src="assets/icons/close-icon.svg" alt=""></button>
+              <a href="index.html"><h1 class="logo">Rewear.co</h1></a>
+              <ul class="sidebar-menu">
+                  <li><a href="collection.html">Collection</a></li>
+                  <li><a href="product.html">Product</a></li>
+                  <li><a href="blog.html">Blog</a></li>
+                  <li><a href="location.html">Store Location</a></li>
+                  <li><a href="redesign.html">Redesign</a></li>
+              </ul>
+          </div>
+      </div>
+      
+      <!-- Navigation -->
+      <nav class="main-nav">
+          <div class="desktop-menu">
+              <ul class="nav-links">
+                  <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="200"><a href="collection.html">Collection</a></li>
+                  <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="300"><a href="product.html">Product</a></li>
+                  <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="400"><a href="blog.html">Blog</a></li>
+                  <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="500"><a href="location.html">Store Location</a></li>
+                  <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="600"><a href="redesign.html">Redesign</a></li>
+              </ul>
+          </div>
+          <div class="logo-container">
+              <button data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" id="hamburger" class="hamburger"><img src="assets/icons/hamburger.svg" alt=""></button>
+              <a href="index.html"><h1 data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="logo" style="color: black;">Rewear.co</h1></a>
+          </div>
+          <div class="nav-actions">
+              <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" class="search-container">
+                  <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon">
+                      <path d="M16.031 14.617L20.314 18.899L18.899 20.314L14.617 16.031C13.0237 17.3082 11.042 18.0029 9 18C4.032 18 0 13.968 0 9C0 4.032 4.032 0 9 0C13.968 0 18 4.032 18 9C18.0029 11.042 17.3082 13.0237 16.031 14.617ZM14.025 13.875C15.2938 12.5697 16.0025 10.8204 16 9C16 5.133 12.867 2 9 2C5.133 2 2 5.133 2 9C2 12.867 5.133 16 9 16C10.8204 16.0025 12.5697 15.2938 13.875 14.025L14.025 13.875Z" fill="#000"/>
+                  </svg>
+                  <input type="text" placeholder="Search" class="search-input" />
+              </div>
+              <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="350" class="mobile-search">
+                  <button href="" onclick="searching()">
+                      <img src="assets/icons/search.svg" alt="" class="mobile-search-icon">
+                  </button>
+              </div>
+              <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="350" class="nav-icon">
+                  <button>
+                      <a href="bag.html">
+                          <img src="assets/icons/bag-icon-black.svg" alt="" class="icon">
+                      </a>
+                  </button>
+              </div>                <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="300" class="nav-icon">
+                <button>
+                    <a href="wishlist.html">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#000"/>
+                        </svg>
+                    </a>
+                </button>
+            </div>
+              <div data-aos="fade-left" data-aos-duration="500" data-aos-delay="300" class="nav-icon">
+                  <button>
+                      <a href="login.html">
+                          <img src="assets/icons/profile-icon.svg" alt="" class="icon">
+                      </a>
+                  </button>
+              </div>
+          </div>  
+      </nav>
+      
+      <!-- Mobile Search Bar -->
+      <div class="mobile-search-container">
+          <div id="searchBar" class="mobile-search-bar">
+              <button><img src="assets/icons/search.svg" alt="" class="mobile-search-icon"></button>
+              <input type="text" placeholder="Search" class="mobile-search-input" />
+          </div>  
+      </div>
+      
+      <!-- Breadcrumb -->
+      <div class="breadcrumb-container">
+          <div class="breadcrumb-section">
+              <ul class="breadcrumb">
+                  <a data-aos="fade-right" data-aos-duration="500" data-aos-delay="200" href="index.html"><li>Home</li></a>
+                  <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">/</li>
+                  <li data-aos="fade-right" data-aos-duration="500" data-aos-delay="300">Redesign Studio</li>
+              </ul>
+          </div>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="redesign-container">
+          <h1 data-aos="fade-up" data-aos-duration="500" class="redesign-title">Redesign Your Clothes</h1>
+          <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" class="redesign-subtitle">Customize and visualize your sustainable fashion in 3D</p>
+          
+          <div class="redesign-content">
+              <!-- 3D Model Viewer -->
+              <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="model-viewer-container">
+                  <div id="model-viewer"></div>
+                  <div class="model-controls">
+                      <button id="rotate-left" class="control-btn"><img src="assets/icons/rotate-left.svg" alt="Rotate Left"></button>
+                      <button id="rotate-right" class="control-btn"><img src="assets/icons/rotate-right.svg" alt="Rotate Right"></button>
+                      <button id="zoom-in" class="control-btn"><img src="assets/icons/zoom-in.svg" alt="Zoom In"></button>
+                      <button id="zoom-out" class="control-btn"><img src="assets/icons/zoom-out.svg" alt="Zoom Out"></button>
+                      <button id="reset-view" class="control-btn">Reset View</button>
+                  </div>
+              </div>
+              
+              <!-- Customization Panel -->
+              <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" class="customization-panel">
+                  <div class="panel-section">
+                      <h2 class="section-title">Select Item</h2>
+                      <div class="item-selector">
+                          <div class="item-option active" data-item="tshirt">
+                              <img src="assets/images/cloth-1.png" alt="T-Shirt">
+                              <span>T-Shirt</span>
+                          </div>
+                          <div class="item-option" data-item="hoodie">
+                              <img src="assets/images/cloth-2.png" alt="Hoodie">
+                              <span>Hoodie</span>
+                          </div>
+                          <div class="item-option" data-item="jacket">
+                              <img src="assets/images/cloth-3.png" alt="Jacket">
+                              <span>Jacket</span>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="panel-section">
+                      <h2 class="section-title">Base Color</h2>
+                      <div class="color-picker">
+                          <div class="color-option active" data-color="#FFFFFF" style="background-color: #FFFFFF;"></div>
+                          <div class="color-option" data-color="#000000" style="background-color: #000000;"></div>
+                          <div class="color-option" data-color="#FF5733" style="background-color: #FF5733;"></div>
+                          <div class="color-option" data-color="#33FF57" style="background-color: #33FF57;"></div>
+                          <div class="color-option" data-color="#3357FF" style="background-color: #3357FF;"></div>
+                          <div class="color-option" data-color="#F3F3A6" style="background-color: #F3F3A6;"></div>
+                          <div class="color-option" data-color="#A6F3F3" style="background-color: #A6F3F3;"></div>
+                          <div class="color-option" data-color="#F3A6F3" style="background-color: #F3A6F3;"></div>
+                      </div>
+                  </div>
+                  
+                  <div class="panel-section">
+                      <h2 class="section-title">Patterns</h2>
+                      <div class="pattern-selector">
+                          <div class="pattern-option active" data-pattern="none">
+                              <div class="pattern-preview" style="background-color: #EEEEEE;"></div>
+                              <span>None</span>
+                          </div>
+                          <div class="pattern-option" data-pattern="stripes">
+                              <div class="pattern-preview" style="background-image: repeating-linear-gradient(45deg, #000, #000 10px, #FFF 10px, #FFF 20px);"></div>
+                              <span>Stripes</span>
+                          </div>
+                          <div class="pattern-option" data-pattern="dots">
+                              <div class="pattern-preview" style="background-image: radial-gradient(#000 3px, transparent 4px), radial-gradient(#000 3px, transparent 4px); background-size: 20px 20px; background-position: 0 0, 10px 10px;"></div>
+                              <span>Dots</span>
+                          </div>
+                          <div class="pattern-option" data-pattern="floral">
+                              <div class="pattern-preview" style="background-image: url('assets/images/pattern-floral.jpg');"></div>
+                              <span>Floral</span>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="panel-section">
+                      <h2 class="section-title">Materials</h2>
+                      <div class="material-selector">
+                          <div class="material-option active" data-material="cotton">
+                              <div class="material-preview" style="background-image: url('assets/images/material-cotton.jpg');"></div>
+                              <span>Cotton</span>
+                          </div>
+                          <div class="material-option" data-material="linen">
+                              <div class="material-preview" style="background-image: url('assets/images/material-linen.jpg');"></div>
+                              <span>Linen</span>
+                          </div>
+                          <div class="material-option" data-material="denim">
+                              <div class="material-preview" style="background-image: url('assets/images/material-denim.jpg');"></div>
+                              <span>Denim</span>
+                          </div>
+                          <div class="material-option" data-material="silk">
+                              <div class="material-preview" style="background-image: url('assets/images/material-silk.jpg');"></div>
+                              <span>Silk</span>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="panel-section">
+                      <h2 class="section-title">Accessories</h2>
+                      <div class="accessory-selector">
+                          <div class="accessory-option" data-accessory="pocket">
+                              <div class="accessory-preview">
+                                  <img src="assets/images/accessory-pocket.png" alt="Pocket">
+                              </div>
+                              <span>Pocket</span>
+                              <input type="checkbox" class="accessory-toggle">
+                          </div>
+                          <div class="accessory-option" data-accessory="buttons">
+                              <div class="accessory-preview">
+                                  <img src="assets/images/accessory-buttons.png" alt="Buttons">
+                              </div>
+                              <span>Buttons</span>
+                              <input type="checkbox" class="accessory-toggle">
+                          </div>
+                          <div class="accessory-option" data-accessory="hood">
+                              <div class="accessory-preview">
+                                  <img src="assets/images/accessory-hood.png" alt="Hood">
+                              </div>
+                              <span>Hood</span>
+                              <input type="checkbox" class="accessory-toggle">
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="action-buttons">
+                      <button id="save-design" class="primary-btn">Save Design</button>
+                      <button id="share-design" class="secondary-btn">Share</button>
+                      <button id="add-to-cart" class="primary-btn">Add to Cart</button>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Saved Designs Section -->
+          <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" class="saved-designs-section">
+              <h2 class="section-title">Your Saved Designs</h2>
+              <div class="saved-designs-grid">
+                  <div class="saved-design">
+                      <img src="assets/images/saved-design-1.jpg" alt="Saved Design 1">
+                      <div class="design-info">
+                          <h3>Custom White Tee</h3>
+                          <p>Created on: March 5, 2023</p>
+                          <div class="design-actions">
+                              <button class="edit-btn">Edit</button>
+                              <button class="delete-btn">Delete</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="saved-design">
+                      <img src="assets/images/saved-design-2.jpg" alt="Saved Design 2">
+                      <div class="design-info">
+                          <h3>Blue Striped Hoodie</h3>
+                          <p>Created on: February 18, 2023</p>
+                          <div class="design-actions">
+                              <button class="edit-btn">Edit</button>
+                              <button class="delete-btn">Delete</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="saved-design">
+                      <img src="assets/images/saved-design-3.jpg" alt="Saved Design 3">
+                      <div class="design-info">
+                          <h3>Floral Pattern Jacket</h3>
+                          <p>Created on: January 30, 2023</p>
+                          <div class="design-actions">
+                              <button class="edit-btn">Edit</button>
+                              <button class="delete-btn">Delete</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Recommended Combinations -->
+          <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" class="recommended-section">
+              <h2 class="section-title">Recommended Combinations</h2>
+              <div class="recommended-grid">
+                  <div class="recommended-item">
+                      <img src="assets/images/recommended-1.jpg" alt="Recommended Design 1">
+                      <div class="recommended-info">
+                          <h3>Eco-Friendly Collection</h3>
+                          <p>Natural dyes with organic cotton</p>
+                          <button class="try-btn">Try This</button>
+                      </div>
+                  </div>
+                  <div class="recommended-item">
+                      <img src="assets/images/recommended-2.jpg" alt="Recommended Design 2">
+                      <div class="recommended-info">
+                          <h3>Urban Style</h3>
+                          <p>Modern patterns with recycled materials</p>
+                          <button class="try-btn">Try This</button>
+                      </div>
+                  </div>
+                  <div class="recommended-item">
+                      <img src="assets/images/recommended-3.jpg" alt="Recommended Design 3">
+                      <div class="recommended-info">
+                          <h3>Vintage Inspired</h3>
+                          <p>Classic designs with sustainable fabrics</p>
+                          <button class="try-btn">Try This</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    </div>
+    
+    <!-- Popup -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/redesign.js"></script>
+</body>
+</html>
