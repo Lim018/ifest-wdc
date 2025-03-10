@@ -1,40 +1,93 @@
-// const slider = document.getElementById('product-slider');
-// const boxWidth = slider.children[0].offsetWidth + 20; // Lebar box + gap
-
-// function scrollRight() {
-//     slider.scrollBy({ left: boxWidth, behavior: 'smooth' });
-
-//     // Tunggu sampai scroll selesai, baru pindahkan elemen
-//     setTimeout(() => {
-//         if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-//             slider.appendChild(slider.firstElementChild);
-//             slider.scrollLeft -= boxWidth;
-//         }
-//     }, 300);
-// }
-
-// function scrollLeft() {
-//     if (slider.scrollLeft <= 0) {
-//         slider.prepend(slider.lastElementChild);
-//         slider.scrollLeft += boxWidth;
-//     }
-
-//     slider.scrollBy({ left: -boxWidth, behavior: 'smooth' });
-// }
 
 
-// AOS.init();
+document.addEventListener('DOMContentLoaded', function() {
+    // Inisialisasi AOS jika tersedia
+    if (typeof AOS !== 'undefined') {
+        AOS.init();
+    }
 
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//     anchor.addEventListener("click", function (e) {
-//         e.preventDefault();
+    // Buka filter "Type" secara default
+    const typeDropdownMobile = document.getElementById('dropdownList5'); // Mobile
+    const typeArrowMobile = document.getElementById('arrowIcon5'); // Mobile
+    const typeDropdownDesktop = document.getElementById('dropdownList1'); // Desktop
+    const typeArrowDesktop = document.getElementById('arrowIcon1'); // Desktop
 
-//         const target = document.querySelector(this.getAttribute("href"));
-//         if (target) {
-//             window.scrollTo({
-//                 top: target.offsetTop - 50, // Bisa disesuaikan jika ada header fixed
-//                 behavior: "smooth"
-//             });
-//         }
-//     });
-// });
+    // Untuk Mobile Sidebar
+    if (typeDropdownMobile && typeArrowMobile) {
+        typeDropdownMobile.classList.add('open');
+        typeArrowMobile.classList.add('rotated');
+    }
+
+    // Untuk Desktop Sidebar
+    if (typeDropdownDesktop && typeArrowDesktop) {
+        typeDropdownDesktop.classList.add('open');
+        typeArrowDesktop.classList.add('rotated');
+    }
+
+    // Logika toggle untuk semua dropdown
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const dropdownId = this.getAttribute('data-target');
+            const dropdown = document.getElementById(dropdownId);
+            const arrow = this.querySelector('.arrow-icon');
+
+            if (dropdown) {
+                dropdown.classList.toggle('open');
+                if (arrow) {
+                    arrow.classList.toggle('rotated');
+                }
+            } else {
+                console.error(`Dropdown dengan ID ${dropdownId} tidak ditemukan!`);
+            }
+        });
+    });
+});
+// >>>>>>> 314b79e5f0da74eb8f503641ceeb982426f54506
+
+// Update the wishlist functionality
+document.addEventListener("DOMContentLoaded", () => {
+    const wishlistButtons = document.querySelectorAll(".wishlist-btn")
+    const wishlist = new Set(JSON.parse(localStorage.getItem("wishlist") || "[]"))
+  
+    // Update initial states
+    wishlistButtons.forEach((button, index) => {
+      if (wishlist.has(index)) {
+        button.classList.add("active")
+      }
+  
+      button.addEventListener("click", function (e) {
+        e.preventDefault()
+        e.stopPropagation()
+  
+        // Toggle active state
+        this.classList.toggle("active")
+  
+        // Reset animation
+        const heart = this.querySelector(".heart")
+        heart.style.animation = "none"
+        heart.offsetHeight // Trigger reflow
+        heart.style.animation = null
+  
+        // Update wishlist
+        if (this.classList.contains("active")) {
+          wishlist.add(index)
+          heart.style.animation = "heartBeat 0.3s ease-out"
+        } else {
+          wishlist.delete(index)
+        }
+  
+        localStorage.setItem("wishlist", JSON.stringify([...wishlist]))
+      })
+  
+      // Add keyboard support for accessibility
+      button.addEventListener("keypress", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault()
+          this.click()
+        }
+      })
+    })
+  })
+  
+  
